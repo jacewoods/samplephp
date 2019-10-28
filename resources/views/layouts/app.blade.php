@@ -25,7 +25,7 @@
 
 
   <footer id="footer" class="text-center">
-    <p> Copyright 2019 &copy; Sample</p>
+    <p> Copyright 2019&copy; Sample</p>
   </footer>
   </body>
 </html>
