@@ -15,6 +15,6 @@ Route::get('/', 'PagesController@getHome');
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/create', 'PagesController@getCreate');
 
-Route::get('/messages', 'MessagesController@getMessages');
+Route::get('/customers', 'CustomersController@getCustomers');
 
-Route::post('/create/submit', 'MessagesController@submit');
+Route::post('/create/submit', 'CustomersController@submit');

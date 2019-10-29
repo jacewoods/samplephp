@@ -10,15 +10,22 @@ class CustomersController extends Controller
     public function submit(Request $request)
     {
       $this->validate($request, [
-        'name' => 'required',
+        'firstname' => 'required',
+        'lastname' => 'required',
         'email' => 'required'
       ]);
 
       // Create New Customer
       $customer = new Customer;
-      $customer->name = $request->input('name');
+      $customer->firstname = $request->input('firstname');
+      $customer->lastname = $request->input('lastname');
       $customer->email = $request->input('email');
-      $customer->message = $request->input('message');
+      $customer->address1 = $request->input('address1');
+      $customer->address2 = $request->input('address2');
+      $customer->city = $request->input('city');
+      $customer->state = $request->input('state');
+      $customer->zip = $request->input('zip');
+      $customer->country = $request->input('country');
       // Save Message
       $customer->save();
 
