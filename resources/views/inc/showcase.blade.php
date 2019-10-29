@@ -1,6 +1,6 @@
 <div class="jumbotron text-center">
   <div class="container">
-    <h1>Welcome to our Site</h1>
-    <p class="lead">Welcome to the brand new Laravel-powered site</p>
+    <h1>Welcome to Customer Creator!</h1>
+    <p class="lead">Create, Search, Edit, and View Customer data with this Site!</p>
   </div>
 </div>

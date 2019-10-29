@@ -7,13 +7,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Acme</a>
+          <a class="navbar-brand" href="#">Customer Creator</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="{{Request::is('/') ? 'active' : ''}}"><a href="/">Home</a></li>
+            <li class="{{Request::is('create') ? 'active' : ''}}"><a href="/create">Create</a></li>
+            <li class="{{Request::is('messages') ? 'active' : ''}}"><a href="/messages">View</a></li>
             <li class="{{Request::is('about') ? 'active' : ''}}"><a href="/about">About</a></li>
-            <li class="{{Request::is('contact') ? 'active' : ''}}"><a href="/contact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

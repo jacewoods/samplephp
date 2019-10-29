@@ -13,8 +13,8 @@
 
 Route::get('/', 'PagesController@getHome');
 Route::get('/about', 'PagesController@getAbout');
-Route::get('/contact', 'PagesController@getContact');
+Route::get('/create', 'PagesController@getCreate');
 
 Route::get('/messages', 'MessagesController@getMessages');
 
-Route::post('/contact/submit', 'MessagesController@submit');
+Route::post('/create/submit', 'MessagesController@submit');
