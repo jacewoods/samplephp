@@ -15,9 +15,4 @@ class PagesController extends Controller
     {
       return view('about');
     }
-
-    public function getCreate()
-    {
-      return view('create');
-    }
 }

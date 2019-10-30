@@ -12,7 +12,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="{{Request::is('/') ? 'active' : ''}}"><a href="/">Home</a></li>
-            <li class="{{Request::is('create') ? 'active' : ''}}"><a href="/create">Create</a></li>
+            <li class="{{Request::is('create') ? 'active' : ''}}"><a href="/customers/create">Create</a></li>
             <li class="{{Request::is('customers') ? 'active' : ''}}"><a href="/customers">View</a></li>
           </ul>
         </div><!--/.nav-collapse -->
