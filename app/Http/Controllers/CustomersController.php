@@ -29,6 +29,26 @@ class CustomersController extends Controller
     }
 
     /**
+    * Search function to access contents in the 'Customer' database
+    */
+    public function search(Request $request)
+    {
+      $search = $request->get('search');
+      $customers = Customer::where('firstname', 'like', '%'.$search.'%')
+      ->orWhere('lastname', 'like', '%'.$search.'%')
+      ->orWhere('email', 'like', '%'.$search.'%')
+      ->orWhere('address1', 'like', '%'.$search.'%')
+      ->orWhere('address2', 'like', '%'.$search.'%')
+      ->orWhere('city', 'like', '%'.$search.'%')
+      ->orWhere('state', 'like', '%'.$search.'%')
+      ->orWhere('zip', 'like', '%'.$search.'%')
+      ->orWhere('country', 'like', '%'.$search.'%')
+      ->orWhere('id', 'like', '%'.$search.'%')
+      ->paginate(5);
+      return view('customers.search', ['customers' => $customers]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
