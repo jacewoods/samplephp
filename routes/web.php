@@ -18,3 +18,5 @@ Route::get('/create', 'PagesController@getCreate');
 Route::get('/customers', 'CustomersController@getCustomers');
 
 Route::post('/create/submit', 'CustomersController@submit');
+
+Route::resource('customers', 'CustomersController');
