@@ -7,6 +7,13 @@ use App\Customer;
 
 class CustomersController extends Controller
 {
+    public function messages()
+    {
+        return [
+          'firstname.required' => 'a First Name is required.',
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -33,8 +40,8 @@ class CustomersController extends Controller
     */
     public function search(Request $request)
     {
-      $search = $request->get('search');
-      $customers = Customer::where('firstname', 'like', '%'.$search.'%')
+        $search = $request->get('search');
+        $customers = Customer::where('firstname', 'like', '%'.$search.'%')
       ->orWhere('lastname', 'like', '%'.$search.'%')
       ->orWhere('email', 'like', '%'.$search.'%')
       ->orWhere('address1', 'like', '%'.$search.'%')
@@ -45,7 +52,7 @@ class CustomersController extends Controller
       ->orWhere('country', 'like', '%'.$search.'%')
       ->orWhere('id', 'like', '%'.$search.'%')
       ->paginate(5);
-      return view('customers.search', ['customers' => $customers]);
+        return view('customers.search', ['customers' => $customers]);
     }
 
     /**
@@ -56,26 +63,33 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request, [
+        $this->validate(
+            $request,
+            [
         'firstname' => 'required',
         'lastname' => 'required',
         'email' => 'required'
-      ]);
-      // Create New Customer
-      $customer = new Customer;
-      $customer->firstname = $request->input('firstname');
-      $customer->lastname = $request->input('lastname');
-      $customer->email = $request->input('email');
-      $customer->address1 = $request->input('address1');
-      $customer->address2 = $request->input('address2');
-      $customer->city = $request->input('city');
-      $customer->state = $request->input('state');
-      $customer->zip = $request->input('zip');
-      $customer->country = $request->input('country');
-      // Save Message
-      $customer->save();
-      // Redirect
-      return redirect('/customers')->with('success', 'Customer information submitted!');
+      ],
+            ['firstname.required' => 'A First Name is required.',
+        'lastname.required' => 'A Last Name is required.',
+        'email.required' => 'An Email Address is required.'
+      ]
+        );
+        // Create New Customer
+        $customer = new Customer;
+        $customer->firstname = $request->input('firstname');
+        $customer->lastname = $request->input('lastname');
+        $customer->email = $request->input('email');
+        $customer->address1 = $request->input('address1');
+        $customer->address2 = $request->input('address2');
+        $customer->city = $request->input('city');
+        $customer->state = $request->input('state');
+        $customer->zip = $request->input('zip');
+        $customer->country = $request->input('country');
+        // Save Message
+        $customer->save();
+        // Redirect
+        return redirect('/customers')->with('success', 'Customer information submitted!');
     }
 
     /**
@@ -111,26 +125,26 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, [
+        $this->validate($request, [
         'firstname' => 'required',
         'lastname' => 'required',
         'email' => 'required'
       ]);
-      // Edit Customer
-      $customer = Customer::find($id);
-      $customer->firstname = $request->input('firstname');
-      $customer->lastname = $request->input('lastname');
-      $customer->email = $request->input('email');
-      $customer->address1 = $request->input('address1');
-      $customer->address2 = $request->input('address2');
-      $customer->city = $request->input('city');
-      $customer->state = $request->input('state');
-      $customer->zip = $request->input('zip');
-      $customer->country = $request->input('country');
-      // Save Message
-      $customer->save();
-      // Redirect
-      return redirect('/customers')->with('success', 'Customer information updated!');
+        // Edit Customer
+        $customer = Customer::find($id);
+        $customer->firstname = $request->input('firstname');
+        $customer->lastname = $request->input('lastname');
+        $customer->email = $request->input('email');
+        $customer->address1 = $request->input('address1');
+        $customer->address2 = $request->input('address2');
+        $customer->city = $request->input('city');
+        $customer->state = $request->input('state');
+        $customer->zip = $request->input('zip');
+        $customer->country = $request->input('country');
+        // Save Message
+        $customer->save();
+        // Redirect
+        return redirect('/customers')->with('success', 'Customer information updated!');
     }
 
     /**

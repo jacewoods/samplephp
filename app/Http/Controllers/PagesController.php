@@ -8,11 +8,11 @@ class PagesController extends Controller
 {
     public function getHome()
     {
-      return view('home');
+        return view('home');
     }
 
     public function getAbout()
     {
-      return view('about');
+        return view('about');
     }
 }
